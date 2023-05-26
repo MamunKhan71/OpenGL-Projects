@@ -1,0 +1,100 @@
+#include <GL/gl.h>
+#include <GL/glut.h>
+void display(void)
+{
+glClear (GL_COLOR_BUFFER_BIT);
+    /* Outer Skull */
+    glBegin(GL_POLYGON);
+        glVertex3f(4.0f, 7.0f, 0.0f);
+        glVertex3f(4.45833f, 7.64208f, 0.0f);
+        glVertex3f(5.0f, 7.0f, 0.0f);
+        glVertex3f(5.0f, 6.0f, 0.0f);
+        glVertex3f(4.0f, 6.0f, 0.0f);
+    glEnd();
+
+    glBegin(GL_TRIANGLES);
+    glVertex3f(3.0f, 6.0f, 0.0f);
+    glVertex3f(6.0f, 6.0f, 0.0f);
+    glVertex3f(4.52024f, 4.01389f, 0.0f);
+    glEnd();
+    glBegin(GL_QUADS);
+    glVertex3f(4.52024f, 4.01389f, 0.0f);
+    glVertex3f(3.0f, 2.0f, 0.0f);
+    glVertex3f(2.0f, 5.0f, 0.0f);
+    glVertex3f(3.0f, 6.0f, 0.0f);
+    glEnd();
+    glBegin(GL_QUADS);
+    glVertex3f(4.52024f, 4.01389f, 0.0f);
+    glVertex3f(6.0f, 6.0f, 0.0f);
+    glVertex3f(7.0f, 5.0f, 0.0f);
+    glVertex3f(6.0f, 2.0f, 0.0f);
+    glEnd();
+    glBegin(GL_QUADS);
+    glVertex3f(4.52024f, 4.01389f, 0.0f);
+    glVertex3f(3.0f, 2.0f, 0.0f);
+    glVertex3f(4.49548f, 1.00485f, 0.0f);
+    glVertex3f(6.0f, 2.0f, 0.0f);
+    glEnd();
+    glBegin(GL_QUADS);
+    glVertex3f(6.24f, 5.76f, 0.0f);
+    glVertex3f(7.0f, 6.0f, 0.0f);
+    glVertex3f(8.0f, 5.0f, 0.0f);
+    glVertex3f(6.67f, 4.01f, 0.0f);
+    glEnd();
+    glBegin(GL_QUADS);
+    glVertex3f(7.0f, 6.0f, 0.0f);
+    glVertex3f(7.99f, 5.770f, 0.0f);
+    glVertex3f(9.0f, 5.0f, 0.0f);
+    glVertex3f(7.34f, 5.02f, 0.0f);
+    glEnd();
+    glBegin(GL_QUADS);
+    glVertex3f(2.83f, 5.83f, 0.0f);
+    glVertex3f(2.0f, 6.0f, 0.0f);
+    glVertex3f(1.0f, 5.0f, 0.0f);
+    glVertex3f(2.34f, 3.98f, 0.0f);
+    glEnd();
+    glBegin(GL_QUADS);
+    glVertex3f(2.0f, 6.0f, 0.0f);
+    glVertex3f(1.02f, 5.77f, 0.0f);
+    glVertex3f(0.0f, 5.0f, 0.0f);
+    glVertex3f(1.66f, 5.02f, 0.0f);
+    glEnd();
+    glBegin(GL_QUADS);
+    glVertex3f(2.93f, 2.2f, 0.0f);
+    glVertex3f(2.5f, 2.02f, 0.0f);
+    glVertex3f(2.0f, 1.0f, 0.0f);
+    glVertex3f(3.43f, 1.71f, 0.0f);
+    glEnd();
+    glBegin(GL_QUADS);
+    glVertex3f(6.08f, 2.24f, 0.0f);
+    glVertex3f(6.48f, 2.01f, 0.0f);
+    glVertex3f(7.0f, 1.0f, 0.0f);
+    glVertex3f(5.56f, 1.71f, 0.0f);
+    glEnd();
+
+
+
+glFlush ();
+}
+void init (void)
+{
+glClearColor (0.0, 0.0, 0.0, 0.0);
+glMatrixMode(GL_PROJECTION);
+glLoadIdentity();
+glOrtho(0.0, 10.0, 0.0, 10.0, -10.0, 10.0);
+}
+int main(int argc, char** argv)
+{
+glutInit(&argc, argv);
+glutInitDisplayMode (GLUT_SINGLE | GLUT_RGB);
+glutInitWindowSize (600, 600);
+glutInitWindowPosition (100, 100);
+glutCreateWindow ("Demo Project");
+init ();
+glutDisplayFunc(display);
+glutMainLoop();
+return 0;
+}
+
+
+
