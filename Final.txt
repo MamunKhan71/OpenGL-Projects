@@ -9,8 +9,88 @@ float bubbleRadius = 20.0;
 float bubbleSpeed = 1.0;
 float bubblePositionX[100];
 float bubblePositionY[100];
-
 float fishPosX = 50.0; // Initial X position of the fish
+float fishPosX2 = windowWidth-50; // Initial X position of the fish2
+void fish2(int pos)
+{
+
+    glColor3f(1.0, 0.0, 0.5); // Fancy color (pinkish)
+    glBegin(GL_POLYGON);
+    glVertex2f(3.3367370835797 * 11+fishPosX2, 7.0145439628335 * 11 + pos);
+    glVertex2f(5.9275065298185 * 11+fishPosX2, 8.1342923482976 * 11 + pos);
+    glVertex2f(10.6935727078222 * 11+fishPosX2, 8.13429234829 * 11 + pos);
+    glVertex2f(13.2380532578832 * 11+fishPosX2, 7.0145439628335 * 11 + pos);
+    glVertex2f(10.6935727078222 * 11+fishPosX2, 6.1324138284434 * 11 + pos);
+    glVertex2f(5.9275065298185 * 11+fishPosX2, 6.1324138284434 * 11 + pos);
+    glVertex2f(3.3367370835797 * 11+fishPosX2, 7.0145439628335 * 11 + pos);
+    glEnd();
+
+    // Fish tail
+    glBegin(GL_POLYGON);
+    glVertex2f(13.2380532578832 * 11+fishPosX2, 7.0145439628335 * 11+ pos);
+    glVertex2f(14.6 * 11+fishPosX2, 8.4 * 11+ pos);
+    glVertex2f(14.1682052819829 * 11+fishPosX2, 7.0145439628335 * 11+ pos);
+    glVertex2f(14.6 * 11+fishPosX2, 5.8 * 11+ pos);
+    glVertex2f(13.2380532578832 * 11+fishPosX2, 7.0145439628335 * 11+ pos);
+    glEnd();
+
+    // Eye
+    const float eyeRadius = 0.3 * 11;
+    const int numSegments = 50;
+    const float angleIncrement = 2.0 * M_PI / numSegments;
+    const float centerX = 5.432516609874 * 11+fishPosX2;
+    const float centerY = 7.2299742010855 * 11+ pos;
+
+    glColor3f(1.0, 1.0, 1.0); // White color
+    glBegin(GL_POLYGON);
+    for (int i = 0; i < numSegments; ++i)
+    {
+        float angle = i * angleIncrement;
+        float x = centerX + eyeRadius * cos(angle);
+        float y = centerY + eyeRadius * sin(angle);
+        glVertex2f(x, y);
+    }
+    glEnd();
+
+    // Fins
+    glColor3f(0.0, 1.0, 1.0); // Cyan color
+    glBegin(GL_TRIANGLES);
+    glVertex2f(6.4015607510735 * 11+fishPosX2, 8.1342923482976 * 11+ pos);
+    glVertex2f(7.0741489011767 * 11+fishPosX2, 9.0252912175314 * 11+ pos);
+    glVertex2f(7.0863057373307 * 11+fishPosX2, 8.1342923482976 * 11+ pos);
+    glEnd();
+
+    glBegin(GL_TRIANGLES);
+    glVertex2f(6.4191183148237 * 11+fishPosX2, 6.1324138284434 * 11+ pos);
+    glVertex2f(7.0687481735805 * 11+fishPosX2, 5.693790987022 * 11+ pos);
+    glVertex2f(7.0863057373307 * 11+fishPosX2, 6.1324138284434 * 11+ pos);
+    glEnd();
+
+    glBegin(GL_TRIANGLES);
+    glVertex2f(9.1405406961022 * 11+fishPosX2, 8.1342923482976 * 11+ pos);
+    glVertex2f(9.8055456071312 * 11+fishPosX2, 8.5782083807511 * 11+ pos);
+    glVertex2f(10.2805711212103 * 11+fishPosX2, 8.1342923482976 * 11+ pos);
+    glEnd();
+
+    // Mouth
+    glColor3f(1.0, 0.0, 0.0); // Red color
+    glBegin(GL_LINES);
+    glVertex2f(6.0092761705584 * 11+fishPosX2, 7.6589715264465 * 11+ pos);
+    glVertex2f(6.2568421167704 * 11+fishPosX2, 7.4353635750291 * 11+ pos);
+    glVertex2f(6.2568421167704 * 11+fishPosX2, 7.4353635750291 * 11+ pos);
+    glVertex2f(6.2648281150353 * 11+fishPosX2, 7.0280776635189 * 11+ pos);
+    glEnd();
+
+    // Line on the mouth
+    glColor3f(1.0, 0.5, 1.0); // Magenta color
+    glBegin(GL_LINES);
+    glVertex2f(6.2568421167704 * 11+fishPosX2, 7.4353635750291 * 11+ pos);
+    glVertex2f(6.2648281150353 * 11+fishPosX2, 7.0280776635189 * 11+ pos);
+    glEnd();
+
+    glFlush();
+}
+
 
 void fish1(int s) {
    // Triangle 1
@@ -56,6 +136,10 @@ void fish1(int s) {
    glFlush();
 }
 void update(int value) {
+    fishPosX2 -= 5.0;
+    if (fishPosX2 < 0){
+    fishPosX2 = windowWidth-200;
+    }
    fishPosX += 5.0; // Move the fish to the right by 10 units
    if (fishPosX > 1800.0)
       fishPosX = 50.0; // Reset the fish position if it goes off-screen
@@ -273,6 +357,7 @@ void display() {
    drawBubbles();
 
     fish1(400);
+    fish2(600);
    glutSwapBuffers();
 }
 
