@@ -2,7 +2,6 @@
 #include <GL/glut.h>
 #include <cstdlib>
 #include <cmath>
-
 int windowWidth = 1920;
 int windowHeight = 1080;
 int numBubbles = 20;
@@ -11,59 +10,58 @@ float bubbleSpeed = 1.0;
 float bubblePositionX[100];
 float bubblePositionY[100];
 
-float fishPosX = -100.0; // Initial X position of the fish
+float fishPosX = 50.0; // Initial X position of the fish
 
-void fish1(void) {
+void fish1(int s) {
    // Triangle 1
    glColor3f(0.39, 0.58, 0.93); // Light blue
    glBegin(GL_TRIANGLES);
-   glVertex3f(20.375566 + fishPosX, 35.024176+300, 0.0);
-   glVertex3f(20.21639 + fishPosX, 74.022232+300, 0.0);
-   glVertex3f(39.95418 + fishPosX, 54.28444+300, 0.0);
+   glVertex3f(20.375566 + fishPosX, 35.024176+s, 0.0);
+   glVertex3f(20.21639 + fishPosX, 74.022232+s, 0.0);
+   glVertex3f(39.95418 + fishPosX, 54.28444+s, 0.0);
    glEnd();
 
    // Triangle 2
    glColor3f(1.0, 0.56, 0.0); // Orange
    glBegin(GL_TRIANGLES);
-   glVertex3f(39.95418 + fishPosX, 54.28444+300, 0.0);
-   glVertex3f(59.37362 + fishPosX, 73.70389+300, 0.0);
-   glVertex3f(59.055268 + fishPosX, 35.024176+300, 0.0);
+   glVertex3f(39.95418 + fishPosX, 54.28444+s, 0.0);
+   glVertex3f(59.37362 + fishPosX, 73.70389+s, 0.0);
+   glVertex3f(59.055268 + fishPosX, 35.024176+s, 0.0);
    glEnd();
 
    // Triangle 3
    glColor3f(0.87, 0.43, 0.63); // Pink
    glBegin(GL_TRIANGLES);
-   glVertex3f(59.37362 + fishPosX, 73.70389+300, 0.0);
-   glVertex3f(78.792 + fishPosX, 54.125264+300, 0.0);
-   glVertex3f(59.055268 + fishPosX, 35.024176+300, 0.0);
+   glVertex3f(59.37362 + fishPosX, 73.70389+s, 0.0);
+   glVertex3f(78.792 + fishPosX, 54.125264+s, 0.0);
+   glVertex3f(59.055268 + fishPosX, 35.024176+s, 0.0);
    glEnd();
 
    // Triangle 4
    glColor3f(0.4, 0.72, 0.41); // Green
    glBegin(GL_TRIANGLES);
-   glVertex3f(48.072143 + fishPosX, 62.561576+300, 0.0);
-   glVertex3f(39.635829 + fishPosX, 93.44167+300, 0.0);
-   glVertex3f(59.37362 + fishPosX, 73.70389+300, 0.0);
+   glVertex3f(48.072143 + fishPosX, 62.561576+s, 0.0);
+   glVertex3f(39.635829 + fishPosX, 93.44167+s, 0.0);
+   glVertex3f(59.37362 + fishPosX, 73.70389+s, 0.0);
    glEnd();
 
    // Triangle 5
    glColor3f(0.93, 0.78, 0.31); // Yellow
    glBegin(GL_TRIANGLES);
-   glVertex3f(48.072143 + fishPosX, 46.166477+300, 0.0);
-   glVertex3f(40.0 + fishPosX, 16.0+300, 0.0);
-   glVertex3f(59.055268 + fishPosX, 35.024176+300, 0.0);
+   glVertex3f(48.072143 + fishPosX, 46.166477+s, 0.0);
+   glVertex3f(40.0 + fishPosX, 16.0+s, 0.0);
+   glVertex3f(59.055268 + fishPosX, 35.024176+s, 0.0);
    glEnd();
 
    glFlush();
 }
-
 void update(int value) {
-   fishPosX += 2.0; // Move the fish to the right by 10 units
-   if (fishPosX > 1920.0)
-      fishPosX = -100.0; // Reset the fish position if it goes off-screen
+   fishPosX += 5.0; // Move the fish to the right by 10 units
+   if (fishPosX > 1800.0)
+      fishPosX = 50.0; // Reset the fish position if it goes off-screen
 
    glutPostRedisplay();
-   glutTimerFunc(50, update, 0); // Call the update function after 100 milliseconds
+   glutTimerFunc(30, update, 0); // Call the update function after 100 milliseconds
 }
 void drawGrass()
 {
@@ -274,7 +272,7 @@ void display() {
    drawAquarium();
    drawBubbles();
 
-    fish1();
+    fish1(400);
    glutSwapBuffers();
 }
 
