@@ -11,6 +11,97 @@ float bubblePositionX[100];
 float bubblePositionY[100];
 float fishPosX = 50.0; // Initial X position of the fish
 float fishPosX2 = windowWidth-50; // Initial X position of the fish2
+float jellyPosY = 100;
+float x_cor = 1080;
+int jellyCounter = 0;
+void jellyfish()
+{
+    float scalingFactor = 15; // Adjust this value to make the jellyfish bigger or smaller
+
+    // JellyFish Body
+    glColor3f(1.0, 0.5, 0.8); // Fancy color (pinkish)
+    glBegin(GL_POLYGON);
+    glVertex2f(5.9348448602658 * scalingFactor + x_cor, 9.8338256504978 * scalingFactor + jellyPosY);
+    glVertex2f(5.0173194818357 * scalingFactor + x_cor, 9.7213785329573 * scalingFactor + jellyPosY);
+    glVertex2f(4.3528592418237 * scalingFactor + x_cor, 9.2715900627953 * scalingFactor + jellyPosY);
+    glVertex2f(3.851958445507 * scalingFactor + x_cor, 8.484460240012 * scalingFactor + jellyPosY);
+    glVertex2f(3.5452844885784 * scalingFactor + x_cor, 7.499007862251 * scalingFactor + jellyPosY);
+    glVertex2f(4.1279650067427 * scalingFactor + x_cor, 7.5285701249633 * scalingFactor + jellyPosY);
+    glVertex2f(5.17427742399 * scalingFactor + x_cor, 7.4189975691832 * scalingFactor + jellyPosY);
+    glVertex2f(5.9348448602658 * scalingFactor + x_cor, 7.4132305925632 * scalingFactor + jellyPosY);
+    glEnd();
+
+    glColor3f(0.8, 0.5, 1.0); // Fancy color (purplish)
+    glBegin(GL_POLYGON);
+    glVertex2f(5.9348448602658 * scalingFactor + x_cor, 9.8338256504978 * scalingFactor + jellyPosY);
+    glVertex2f(6.8573632234072 * scalingFactor + x_cor, 9.7213785329573 * scalingFactor + jellyPosY);
+    glVertex2f(7.5116009981883 * scalingFactor + x_cor, 9.2409226671025 * scalingFactor + jellyPosY);
+    glVertex2f(8.012501794505 * scalingFactor + x_cor, 8.46401530955 * scalingFactor + jellyPosY);
+    glVertex2f(8.3079247164197 * scalingFactor + x_cor, 7.499007862251 * scalingFactor + jellyPosY);
+    glVertex2f(7.7467176985002 * scalingFactor + x_cor, 7.5285701249633 * scalingFactor + jellyPosY);
+    glVertex2f(6.7040262449429 * scalingFactor + x_cor, 7.4189975691832 * scalingFactor + jellyPosY);
+    glVertex2f(5.9348448602658 * scalingFactor + x_cor, 7.499007862251 * scalingFactor + jellyPosY);
+    glEnd();
+
+    glColor3f(0.7, 0.4, 0.9); // Fancy color (lavender)
+    glBegin(GL_POLYGON);
+    glVertex2f(3.5452844885784 * scalingFactor + x_cor, 7.5644383692262 * scalingFactor + jellyPosY);
+    glVertex2f(3.3825360815292 * scalingFactor + x_cor, 7.1197290810414 * scalingFactor + jellyPosY);
+    glVertex2f(3.5294472025071 * scalingFactor + x_cor, 6.9186928102296 * scalingFactor + jellyPosY);
+    glVertex2f(3.8387337729868 * scalingFactor + x_cor, 6.8491033318716 * scalingFactor + jellyPosY);
+    glVertex2f(4.5578250493523 * scalingFactor + x_cor, 7.1119969167794 * scalingFactor + jellyPosY);
+    glVertex2f(5.2034674552142 * scalingFactor + x_cor, 6.7797545149297 * scalingFactor + jellyPosY);
+    glVertex2f(5.9264181237254 * scalingFactor + x_cor, 7.0656039312075 * scalingFactor + jellyPosY);
+    glVertex2f(6.7040262449429 * scalingFactor + x_cor, 7.4928811126095 * scalingFactor + jellyPosY);
+    glEnd();
+
+    glColor3f(0.6, 0.3, 0.8); // Fancy color (purple)
+    glBegin(GL_POLYGON);
+    glVertex2f(5.1865928162797 * scalingFactor + x_cor, 7.4956199863057 * scalingFactor + jellyPosY);
+    glVertex2f(5.9264181237254 * scalingFactor + x_cor, 7.0656039312075 * scalingFactor + jellyPosY);
+    glVertex2f(6.6455094000909 * scalingFactor + x_cor, 6.7717816892517 * scalingFactor + jellyPosY);
+    glVertex2f(7.2983721582929 * scalingFactor + x_cor, 7.1130892370081 * scalingFactor + jellyPosY);
+    glVertex2f(7.9909059816779 * scalingFactor + x_cor, 6.8568354961336 * scalingFactor + jellyPosY);
+    glVertex2f(8.3673621974261 * scalingFactor + x_cor, 6.9296840832352 * scalingFactor + jellyPosY);
+    glVertex2f(8.4721651424391 * scalingFactor + x_cor, 7.1550104150133 * scalingFactor + jellyPosY);
+    glVertex2f(8.3079247164197 * scalingFactor + x_cor, 7.5644383692262 * scalingFactor + jellyPosY);
+    glEnd();
+
+    glColor3f(0.5, 0.2, 0.7); // Fancy color (dark purple)
+    glBegin(GL_POLYGON);
+    glVertex2f(4.5578250493523 * scalingFactor - 20 + x_cor, 7.1119969167794 * scalingFactor + jellyPosY);
+    glVertex2f(4.6013728757244 * scalingFactor - 20 + x_cor, 6.7493970157177 * scalingFactor + jellyPosY);
+    glVertex2f(4.2747910056077 * scalingFactor + x_cor, 6.2316452704107 * scalingFactor + jellyPosY);
+    glVertex2f(4.983712626105 * scalingFactor + x_cor, 6.3909534997359 * scalingFactor + jellyPosY);
+    glVertex2f(5.93159659059 * scalingFactor + x_cor, 6.0086137493554 * scalingFactor + jellyPosY);
+    glVertex2f(5.9264181237254 * scalingFactor + x_cor, 7.0656039312075 * scalingFactor + jellyPosY);
+    glVertex2f(4.5578250493523 * scalingFactor + x_cor, 7.1119969167794 * scalingFactor + jellyPosY);
+    glEnd();
+
+    glColor3f(0.4, 0.1, 0.6); // Fancy color (dark purple)
+    glBegin(GL_POLYGON);
+    glVertex2f(5.9264181237254 * scalingFactor + x_cor, 7.0656039312075 * scalingFactor + jellyPosY);
+    glVertex2f(5.93159659059 * scalingFactor + x_cor, 6.0086137493554 * scalingFactor + jellyPosY);
+    glVertex2f(6.8954113780076 * scalingFactor + x_cor, 5.8062015054959 * scalingFactor + jellyPosY);
+    glVertex2f(7.9840067143846 * scalingFactor + x_cor, 6.0803051942225 * scalingFactor + jellyPosY);
+    glVertex2f(8.9185521901107 * scalingFactor + x_cor, 6.3816781461181 * scalingFactor + jellyPosY);
+    glVertex2f(8.8165594743617 * scalingFactor + x_cor, 7.1550104150133 * scalingFactor + jellyPosY);
+
+
+    glEnd();
+    glColor3f(0.2, 0.8, 0.4); // Fancy color (green)
+    for (float x = 4.6268621924165 * scalingFactor + x_cor; x <= 7.2904957867342 * scalingFactor + x_cor; x += 0.2365727205 * scalingFactor)
+    {
+        glBegin(GL_LINES);
+        glVertex2f(x, 6.2977581855807 * scalingFactor + jellyPosY); // Tentacle starting point
+        glVertex2f(x, 3.8006016909079 * scalingFactor + jellyPosY);
+        glEnd();
+    }
+
+    glFlush();
+}
+
+
 void fish2(int pos)
 {
 
@@ -135,7 +226,13 @@ void fish1(int s) {
 
    glFlush();
 }
+
+
 void update(int value) {
+    jellyPosY += 5.0;
+    if (jellyPosY > 1050){
+    jellyPosY = 0;
+    }
     fishPosX2 -= 5.0;
     if (fishPosX2 < 0){
     fishPosX2 = windowWidth-200;
@@ -358,6 +455,7 @@ void display() {
 
     fish1(400);
     fish2(600);
+    jellyfish();
    glutSwapBuffers();
 }
 
