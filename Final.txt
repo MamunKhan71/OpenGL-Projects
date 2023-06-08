@@ -14,6 +14,102 @@ float fishPosX2 = windowWidth-50; // Initial X position of the fish2
 float jellyPosY = 100;
 float x_cor = 1080;
 int jellyCounter = 0;
+
+void turtle(float size, float xOffset) {
+    /* Outer Skull */
+    glColor3f(0.2f, 0.8f, 0.6f);  // Set color to green
+    glBegin(GL_POLYGON);
+        glVertex3f(4.0f * size + xOffset, 7.0f * size, 0.0f);
+        glVertex3f(4.45833f * size + xOffset, 7.64208f * size, 0.0f);
+        glVertex3f(5.0f * size + xOffset, 7.0f * size, 0.0f);
+        glVertex3f(5.0f * size + xOffset, 6.0f * size, 0.0f);
+        glVertex3f(4.0f * size + xOffset, 6.0f * size, 0.0f);
+    glEnd();
+
+    /* Triangles */
+    glColor3f(0.8f, 0.2f, 0.2f);  // Set color to red
+    glBegin(GL_TRIANGLES);
+        glVertex3f(3.0f * size + xOffset, 6.0f * size, 0.0f);
+        glVertex3f(6.0f * size + xOffset, 6.0f * size, 0.0f);
+        glVertex3f(4.52024f * size + xOffset, 4.01389f * size, 0.0f);
+    glEnd();
+
+    /* Quads */
+    glColor3f(0.4f, 0.4f, 0.4f);  // Set color to gray
+    glBegin(GL_QUADS);
+        glVertex3f(4.52024f * size + xOffset, 4.01389f * size, 0.0f);
+        glVertex3f(3.0f * size + xOffset, 2.0f * size, 0.0f);
+        glVertex3f(2.0f * size + xOffset, 5.0f * size, 0.0f);
+        glVertex3f(3.0f * size + xOffset, 6.0f * size, 0.0f);
+    glEnd();
+
+    glColor3f(0.9f, 0.5f, 0.2f);  // Set color to orange
+    glBegin(GL_QUADS);
+        glVertex3f(4.52024f * size + xOffset, 4.01389f * size, 0.0f);
+        glVertex3f(6.0f * size + xOffset, 6.0f * size, 0.0f);
+        glVertex3f(7.0f * size + xOffset, 5.0f * size, 0.0f);
+        glVertex3f(6.0f * size + xOffset, 2.0f * size, 0.0f);
+    glEnd();
+
+    glColor3f(0.5f, 0.2f, 0.9f);  // Set color to purple
+    glBegin(GL_QUADS);
+        glVertex3f(4.52024f * size + xOffset, 4.01389f * size, 0.0f);
+        glVertex3f(3.0f * size + xOffset, 2.0f * size, 0.0f);
+        glVertex3f(4.49548f * size + xOffset, 1.00485f * size, 0.0f);
+        glVertex3f(6.0f * size + xOffset, 2.0f * size, 0.0f);
+    glEnd();
+
+    glColor3f(0.1f, 0.6f, 0.8f);  // Set color to blue
+    glBegin(GL_QUADS);
+        glVertex3f(6.24f * size + xOffset, 5.76f * size, 0.0f);
+        glVertex3f(7.0f * size + xOffset, 6.0f * size, 0.0f);
+        glVertex3f(8.0f * size + xOffset, 5.0f * size, 0.0f);
+        glVertex3f(6.67f * size + xOffset, 4.01f * size, 0.0f);
+    glEnd();
+
+    glColor3f(0.7f, 0.3f, 0.1f);  // Set color to brown
+    glBegin(GL_QUADS);
+        glVertex3f(7.0f * size + xOffset, 6.0f * size, 0.0f);
+        glVertex3f(7.99f * size + xOffset, 5.77f * size, 0.0f);
+        glVertex3f(9.0f * size + xOffset, 5.0f * size, 0.0f);
+        glVertex3f(7.34f * size + xOffset, 5.02f * size, 0.0f);
+    glEnd();
+
+    glColor3f(0.8f, 0.4f, 0.7f);  // Set color to pink
+    glBegin(GL_QUADS);
+        glVertex3f(2.83f * size + xOffset, 5.83f * size, 0.0f);
+        glVertex3f(2.0f * size + xOffset, 6.0f * size, 0.0f);
+        glVertex3f(1.0f * size + xOffset, 5.0f * size, 0.0f);
+        glVertex3f(2.34f * size + xOffset, 3.98f * size, 0.0f);
+    glEnd();
+
+    glColor3f(0.2f, 0.7f, 0.9f);  // Set color to cyan
+    glBegin(GL_QUADS);
+        glVertex3f(2.0f * size + xOffset, 6.0f * size, 0.0f);
+        glVertex3f(1.02f * size + xOffset, 5.77f * size, 0.0f);
+        glVertex3f(0.0f * size + xOffset, 5.0f * size, 0.0f);
+        glVertex3f(1.66f * size + xOffset, 5.02f * size, 0.0f);
+    glEnd();
+
+    glColor3f(0.6f, 0.4f, 0.1f);  // Set color to dark yellow
+    glBegin(GL_QUADS);
+        glVertex3f(2.93f * size + xOffset, 2.2f * size, 0.0f);
+        glVertex3f(2.5f * size + xOffset, 2.02f * size, 0.0f);
+        glVertex3f(2.0f * size + xOffset, 1.0f * size, 0.0f);
+        glVertex3f(3.43f * size + xOffset, 1.71f * size, 0.0f);
+    glEnd();
+
+    glColor3f(0.3f, 0.8f, 0.1f);  // Set color to light green
+    glBegin(GL_QUADS);
+        glVertex3f(6.08f * size + xOffset, 2.24f * size, 0.0f);
+        glVertex3f(6.48f * size + xOffset, 2.01f * size, 0.0f);
+        glVertex3f(7.0f * size + xOffset, 1.0f * size, 0.0f);
+        glVertex3f(5.56f * size + xOffset, 1.71f * size, 0.0f);
+    glEnd();
+
+    glFlush();
+}
+
 void jellyfish()
 {
     float scalingFactor = 15; // Adjust this value to make the jellyfish bigger or smaller
@@ -456,6 +552,7 @@ void display() {
     fish1(400);
     fish2(600);
     jellyfish();
+    turtle(10, 400);
    glutSwapBuffers();
 }
 
