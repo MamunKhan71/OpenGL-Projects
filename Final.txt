@@ -2,9 +2,7 @@
 #include <GL/glut.h>
 #include <cstdlib>
 #include<string.h>
-#include <ctime>
 #include <cmath>
-#include <iostream>
 int windowWidth = 1920;
 int windowHeight = 1080;
 int numBubbles = 20;
@@ -33,14 +31,6 @@ void displayText(float x, float y, int r, int g, int b, const char* string) {
 void handleKeyPress(unsigned char key, int x, int y) {
     if (key == 't') {
         motorStarted = !motorStarted;
-
-        if (motorStarted) {
-            displayText(windowWidth / 2.5, windowHeight - 100, 1, 1, 1, "Motor Started!");
-        } else {
-            displayText(windowWidth / 2.5, windowHeight - 100, 1, 1, 1, "Oxygen Level is low - T to start the motor");
-        }
-
-        glutPostRedisplay();
     }
 }
 void turtle(float size, float xOffset) {
@@ -812,7 +802,7 @@ void display() {
         displayText(windowWidth / 2.2, windowHeight - 100, 1, 1, 1, "Motor Started!");
         drawlight(0.0, 1.0, 0.0);
     } else {
-        displayText(windowWidth / 2.5, windowHeight - 100, 1, 1, 1, "Oxygen Level is low - T to start the motor");
+        displayText(windowWidth / 2.5, windowHeight - 100, 1, 1, 1, "Oxygen Level is low - t to start the motor");
         drawlight(1.0, 0.0, 0.0);
     }
    glutSwapBuffers();
